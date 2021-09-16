@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>What a New User!</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New User here!</h1>
+        <hr>
+        <h1>New User Info:</h1>
+            <form action="/create_user" method="POST">
+                <label for="fname">First Name:</label>
+                <input type="text" name="fname">
+                <label for="lname">Last Name:</label>
+                <input type="text" name="lname">
+                <label for="email" >Email:</label>
+                <input type="text" name="email">
+                <input type="submit" value="Add User">
+            </form> 
+        <hr>
+        <div style="display: flex;">
+            <div style="padding: 5px;">
+                <h3>Return to list of Users -></h3>
+            </div>
+            <div style="padding: 5px;">
+                <a class="btn btn-primary" href="/">Back to List</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
