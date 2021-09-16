@@ -16,10 +16,10 @@ class User:
         results = connectToMySQL('users_schema').query_db(query)
         # make sure to call the connectToMySQL function with the schema you are targeting.
 
-        # Create an empty list to append our instances of friends
+        # Create an empty list to append our instances of users
         users = []
 
-        # Iterate over the db results and create instances of friends with cls.
+        # Iterate over the db results and create instances of users with cls.
         for single_obj in results:
             users.append( cls(single_obj) )
         return users
@@ -27,5 +27,27 @@ class User:
     @classmethod
     def save_user(cld, data):
         query = "INSERT INTO users (first_name, last_name, email, created_at, updated_at) VALUES(%(fname)s, %(lname)s, %(email)s, NOW(), NOW());"
+        results = connectToMySQL('users_schema').query_db(query, data)
+        return results
+
+    @classmethod
+    def one_user(cls, data):
+        query = "SELECT * FROM users WHERE id = %(user_id)s;"
+
+        results = connectToMySQL('users_schema').query_db(query, data)
+
+        return cls( results[0] ) 
+
+    @classmethod
+    def update_user(cls, data):
+        query = "UPDATE users SET first_name = %(fname)s, last_name = %(lname)s, email = %(email)s, updated_at = NOW() WHERE id = %(id)s;"
+
+        results = connectToMySQL('users_schema').query_db(query, data)
+        return results
+
+    @classmethod
+    def delete_user(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+
         results = connectToMySQL('users_schema').query_db(query, data)
         return results

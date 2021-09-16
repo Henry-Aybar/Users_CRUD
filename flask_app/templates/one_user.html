@@ -5,27 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>Users</title>
+    <title>User Info</title>
 </head>
 <body>
     <div class="container">
-        <hr>
-        <hr>
-        <h1>All Users</h1>
-        <hr>
-        <hr>
-        {% for one_user in all_users %}
+        <h1>User Info:</h1>
+        <p>User Id# {{one_user.id}}</p>
         <p>First Name: {{one_user.first_name}}</p>
         <p>Last Name: {{one_user.last_name}}</p>
         <p>User Email: {{one_user.email}}</p>
-        <a class="btn btn-primary" href="/edit_user/{{one_user.id}}">Edit</a>
-        <a class="btn btn-primary" href="/user/{{one_user.id}}">View Info</a>
-        <a class="btn btn-danger" href="/delete_user/{{one_user.id}}">Delete User</a>
-        
         <hr>
-        {% endfor %}
-        <div>
-            <a class="mb-3 btn btn-primary" href="/new_user">Add New User HERE!</a>
+        <div style="display: flex;">
+            <div style="padding: 5px;">
+                <a class="btn btn-primary" href="/">Back to List</a>
+            </div>
+            <div style="padding: 5px;">
+                <a class="btn btn-primary" href="/edit_user/{{one_user.id}}">Edit</a>
+            </div>
+            <div style="padding: 5px;">
+                <a class="btn btn-danger" href="/delete_user/{{one_user.id}}">Delete User</a>
+            </div>
         </div>
     </div>
 </body>
